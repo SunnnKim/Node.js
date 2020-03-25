@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div align="center">
+        <h3>글 추가</h3>
+        <form method='post' name="frm">
+            <table border="1">
+                <tr>
+                    <th>작성자</th>
+                    <td>
+                        <input type="text" size="30" name='writer'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td>
+                        <input type="text" size="30" name='title'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <textarea cols="30" rows="10" name='content'></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <button onclick="register()">등록</button>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+<script>
+    register = () =>{
+        frm.action = '/register';   // javascript
+        frm.submit();      // jquery -> submit(짐(데이터)가지고 이동)
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- mycss.style %>
+</head>
+<body>
+    
+<!-- 
+    ejs : (Embedded JavaScript)
+    - 자바스크립트가 내장되어있는 html 파일
+    - scriptlet 사용가능
+    
+    <% %>   : javascript code 
+    <%= %>  : javascript value
+    <%- %>  : read 용
+
+        html -> link  :  데이터 넘길 수 있음
+        java -> html (X) 데이터 넘길 수 없음
+        @@ but : ajax로는 데이터 불러올 수 있음
+-->
+
+
+<h1>hello esj ( <%= title %> )</h1>
+
+<%
+    for(i = 1; i < 3 ; i++){
+        %>
+        <h3>hello node.ejs</h3>    
+    <% 
+    }
+%>
+
+
+</body>
+</html>
