@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<%
+function arrow(depth) {
+	var rs = "<img src='/arrow' width='20px' height='20px'/> ";
+	var nbsp = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    
+    var ts = "";
+    
+    for( i =0; i<depth; i++ ) {
+		ts += nbsp;	// 앞에 부분의 여백
+	}
+	
+    return depth==0? "": ts+rs ;
+}
+%>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>게시판</h1>
+<div align='center'>
+    <h3>환영합니다. <%=user%>님 반갑습니다</h3>
+    <table border="1">
+        <col width="70">
+        <col width="500">
+        <col width="150">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+        </tr>
+        <% datas.forEach( (data, index) => { %>
+            <tr>
+                <td><%=index+1%></td>
+                <td>
+                    <!-- 댓글 -->
+                    <%-
+                        arrow( data.depth )
+                    %>
+                    <a href='/bbsdetail?seq=<%=data.SEQ%>'>
+                        <%=data.TITLE%> 
+                    </a>
+                </td>
+                <td><%=data.ID%></td>
+            </tr>
+            
+        <% }) %>
+    </table>
+    <a href='/bbswrite'>글쓰기</a>   
+</div>
+
+
+</body>
+</html>
